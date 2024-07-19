@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Progress</title>
+    <link rel="stylesheet" href="/css/styles1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Goal Progress</h1>
+        <% goals.forEach(goal => { %>
+            <div class="progress-label">
+                <span><%= goal.name %></span>
+                <span><%= ((goal.saved / goal.cost) * 100).toFixed(2) %>%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" style="width: <%= (goal.saved / goal.cost) * 100 %> %; ">
+                    <%= ((goal.saved / goal.cost) * 100).toFixed(2) %>%
+                </div>
+            </div>
+        <% }) %>
+        <a href="/messages">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Idea</title>
+    <!-- <link rel="stylesheet" href="/css/form1.css"> -->
+
+    <style>
+        /* styles.css */
+
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+}
+
+header .logo img {
+    max-height: 50px;
+    vertical-align: middle;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2em;
+}
+
+.form-section {
+    background: #fff;
+    padding: 2em;
+    margin: 2em auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group input[type="file"] {
+    padding: 0;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+.cta-button {
+    background-color: #555;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.cta-button:hover {
+    background-color: #333;
+}
+
+/* Error Handling */
+input:invalid, textarea:invalid {
+    border-color: red;
+}
+
+input:invalid + .error, textarea:invalid + .error {
+    display: block;
+    color: red;
+    font-size: 0.875em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #555;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-section {
+        padding: 1em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    .cta-button {
+        font-size: 0.9em;
+    }
+}
+    </style>
+
+
+</head>
+<body>
+    <!-- <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Funding Routes</a></li>
+                <li><a href="#">Success Stories</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header> -->
+    <%- include("header.ejs") %>
+
+    <main>
+        <section class="form-section">
+            <h2>Submit Your Project Idea</h2>
+            <form action="/submit-idea" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="title">Project Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Project Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="problem">Problem Statement:</label>
+                    <textarea id="problem" name="problem" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount Requested:</label>
+                    <input type="number" id="amount" name="amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Breakdown:</label>
+                    <textarea id="budget" name="budget" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="market">Market Segment:</label>
+                    <input type="text" id="market" name="market" required>
+                </div>
+                <div class="form-group">
+                    <label for="usp">Unique Selling Proposition:</label>
+                    <textarea id="usp" name="usp" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Previous Experience:</label>
+                    <textarea id="experience" name="experience" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Project Timeline:</label>
+                    <textarea id="timeline" name="timeline" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="documents">Supporting Documents:</label>
+                    <input type="file" id="documents" name="documents" multiple>
+                </div>
+                <div class="form-group">
+                    <label for="terms">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        I agree to the <a href="#">terms and conditions</a>
+                    </label>
+                </div>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Funding Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

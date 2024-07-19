@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express App - Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #39393c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .login-container {
+            display: flex;
+            width: 80%;
+            max-width: 600px; /* Reduced max width to fit the form properly */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            color: #333;
+            flex-direction: column; /* Set direction to column for mobile and small screens */
+        }
+
+        .login-form {
+            padding: 40px 20px; /* Adjusted padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Center align items */
+        }
+
+        .login-form h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #0d0d0e;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        .input-container img {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px 10px 12px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-form a {
+            color: #0d0d0e;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d0d0e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #0d0d0e;
+        }
+
+        .login-form p {
+            margin-top: 20px;
+        }
+
+        .login-form p a {
+            color: #0d0d0e;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <div class="input-container">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/user.png" alt="username icon">
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-container">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/lock.png" alt="password icon">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <a href="#">Forgot password?</a>
+                <button type="submit">Submit</button>
+            </form>
+            <p>Don't have an account? <a href="/register">Sign up now</a></p>
+        </div>
+    </div>
+</body>
+</html>

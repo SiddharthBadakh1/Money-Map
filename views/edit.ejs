@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Message</title>
+</head>
+<body>
+    <h1>Edit Message</h1>
+    <form action="/messages/edit/<%= message._id %>" method="POST">
+        <textarea name="content" required><%= message.content %></textarea><br>
+        <button type="submit">Update Message</button>
+    </form>
+    <a href="/messages">Back to Messages</a>
+</body>
+</html>

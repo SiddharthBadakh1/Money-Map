@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Recommendation Form</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        .left, .right {
+            width: 50%;
+            padding: 20px;
+        }
+        .left {
+            background-color: #000;
+            color: #fff;
+            overflow-y: auto;
+        }
+        .right {
+            background-color: #fff;
+            color: #000;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, button {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            
+            <h1>Available Scholarships</h1>
+            <ul>
+                <!-- Display some scholarships here -->
+                <% scholarships.forEach(function(scholarship) { %>
+                    <li>
+                        <strong>Name:</strong> <%= scholarship.name %><br>
+                        <strong>Education Qualification:</strong> <%= scholarship.educationQualification %><br>
+                        <strong>CGPA:</strong> <%= scholarship.cgpa %><br>
+                        <strong>Gender:</strong> <%= scholarship.gender %><br>
+                        <strong>Type:</strong> <%= scholarship.type %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>Scholarship Recommendation Form</h1>
+            <form action="/recommend" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="educationQualification">Education Qualification:</label>
+                <input type="text" id="educationQualification" name="educationQualification" required>
+                
+                <label for="cgpa">CGPA:</label>
+                <input type="number" id="cgpa" name="cgpa" step="0.01" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <label for="type">Type of Scholarship:</label>
+                <select id="type" name="type" required>
+                    <option value="academic">Academic</option>
+                    <option value="sports">Sports</option>
+                </select>
+                
+                <button type="submit">Get Recommendation</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

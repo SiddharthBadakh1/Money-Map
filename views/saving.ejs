@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Saving Goals</title>
+    <link rel="stylesheet" href="/css/styles1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Saving Goals</h1>
+        <a href="/add-goal">Add New Goal</a>
+        <h2>Your Goals</h2>
+        <ul>
+            <% goals.forEach(goal => { %>
+                <li>
+                    <strong><%= goal.name %></strong>
+                    <p>Cost: ₹<%= goal.cost %></p>
+                    <p>Target Date: <%= goal.date %></p>
+                    <p>Monthly Saving Required: ₹<%= goal.monthlySaving.toFixed(2) %></p>
+                    <p>Saved: ₹<%= goal.saved %></p>
+                    <a href="/update-goal/<%= goal.name %>">Update Saved Amount</a>
+                </li>
+            <% }) %>
+        </ul>
+        <a href="/progress">View Progress</a>
+    </div>
+</body>
+</html>

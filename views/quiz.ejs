@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz of the Day</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        label.correct {
+            background-color: #c8e6c9;
+            border-color: #388e3c;
+        }
+        label.incorrect {
+            background-color: #ffcdd2;
+            border-color: #d32f2f;
+        }
+        label.selected {
+            background-color: #bbdefb;
+            border-color: #1976d2;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Quiz of the Day</h1>
+        <p><%= questionData.question %></p>
+        <form action="/quiz" method="POST">
+            <% for (let i = 0; i < questionData.options.length; i++) { %>
+                <label 
+                    class="<%= (typeof answer !== 'undefined' && i === answer) ? (isCorrect ? 'correct' : 'incorrect') : '' %>"
+                    data-index="<%= i %>"
+                >
+                    <input type="radio" name="answer" value="<%= i %>" <%= (typeof answer !== 'undefined' && i === answer) ? 'checked' : '' %> >
+                    <%= questionData.options[i] %>
+                </label>
+            <% } %>
+            <button type="submit">Submit</button>
+        </form>
+        <button type="submit"> <a href="/messages">Back</a></button>
+    </div>
+    <script>
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('label').forEach(label => {
+                    label.classList.remove('selected');
+                });
+                this.parentElement.classList.add('selected');
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

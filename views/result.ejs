@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Recommendations</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Scholarship Recommendations</h1>
+    </div>
+   
+    <div class="content">
+      
+        <div class="container">
+            <% if (scholarships.length > 0) { %>
+                <ul>
+                    <% scholarships.forEach(function(scholarship) { %>
+                        <li>
+                            <strong>Name:</strong> <%= scholarship.name %><br>
+                            <strong>Education Qualification:</strong> <%= scholarship.educationQualification %><br>
+                            <strong>CGPA:</strong> <%= scholarship.cgpa %><br>
+                            <strong>Gender:</strong> <%= scholarship.gender %><br>
+                            <strong>Type:</strong> <%= scholarship.type %>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No scholarships found matching your criteria.</p>
+            <% } %>
+
+            <div class="back-link">
+                <a href="/Scholarship">Back to form</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

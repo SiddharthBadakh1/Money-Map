@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+    <style>
+      /* Google Font Link */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #39393c;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        width: 100%;
+        padding: 10px 0;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      nav ul li {
+        margin: 0 15px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #39393c;
+        font-weight: 500;
+      }
+      nav ul li a:hover {
+        color: #000;
+      }
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .split-container {
+        display: flex;
+        gap: 20px;
+      }
+      .split-container .section {
+        flex: 1;
+        background: #fff;
+        color: #39393c;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+      .profile-info h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .charts {
+        margin-top: 20px;
+      }
+      .charts h1 {
+        margin-bottom: 20px;
+      }
+      .progress-bar-container {
+        background-color: #e0e0e0;
+        border-radius: 13px;
+        padding: 3px;
+        margin-bottom: 10px;
+      }
+      .progress-bar {
+        height: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+      }
+      .progress-bar.rent {
+        background-color: #ff6384;
+      }
+      .progress-bar.food {
+        background-color: #36a2eb;
+      }
+      .progress-bar.travel {
+        background-color: #ffce56;
+      }
+      .scholarship ul {
+        list-style: none;
+        margin-top: 20px;
+        padding: 0;
+      }
+      .scholarship ul li {
+        margin-bottom: 10px;
+      }
+      .courses-section,
+      .articles-section {
+        background: #fff;
+        color: #39393c;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+      .courses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .course-card {
+        flex: 1 1 calc(50% - 20px);
+        background: #f9f9f9;
+        color: #39393c;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .course-card iframe {
+        width: 100%;
+        border-radius: 8px;
+      }
+      .articles .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .article {
+        background: #f9f9f9;
+        color: #39393c;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .more-icon span {
+        color: #39393c;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .more-icon span:hover {
+        text-decoration: underline;
+      }
+      footer {
+        width: 100%;
+        padding: 20px;
+        background: #39393c;
+        color: #fff;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-logo img {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+      .footer-disclaimer p {
+        max-width: 600px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .footer-social a img {
+        width: 30px;
+        margin: 0 10px;
+      }
+      @media (max-width: 768px) {
+        .course-card {
+          flex: 1 1 100%;
+        }
+        .split-container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/Scholarship">Scholarship</a></li>
+          <!-- <li><a href="#">Expenses Tracker</a></li> -->
+          <li><a href="/saving">Savings</a></li>
+          <li><a href="/fund">Crowdfunding</a></li>
+          <li><a href="/quiz">Quiz</a></li>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="split-container">
+        <div class="section">
+          <div class="profile">
+            <img
+              src="/images/profile.png"
+              alt="Profile Photo"
+              class="profile-photo"
+            />
+            <div class="profile-info">
+              <h2><%= namee %></h2>
+              <p>ID: 123456</p>
+              <div class="charts">
+                <h1>Expense Distribution</h1>
+                <div class="progress-bar-container">
+                  <div class="progress-bar rent" style="width: 50%">
+                    Rent 50%
+                  </div>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar food" style="width: 30%">
+                    Food 20%
+                  </div>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar travel" style="width: 40%">
+                    Travel 30%
+                  </div>
+                </div>
+
+                <a href="/addexpence">Add expense</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="scholarship">
+            <h3>Scholarship Information</h3>
+            <p>Details about the scholarship...</p>
+            <ul>
+              <% scholarships.forEach(function(scholarship) { %>
+              <li>
+                <strong>Name:</strong> <%= scholarship.name %><br />
+                <strong>Education Qualification:</strong> <%=
+                scholarship.educationQualification %><br />
+                <strong>CGPA:</strong> <%= scholarship.cgpa %><br />
+                <strong>Gender:</strong> <%= scholarship.gender %><br />
+                <strong>Type:</strong> <%= scholarship.type %>
+              </li>
+              <% }); %>
+            </ul>
+            <a href="/Scholarship"
+              >Get personalized scholarship recommendation</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="courses-section">
+        <h3>This Week's Trending</h3>
+        <div class="courses">
+          <div class="course-card">
+            Financial Video 1
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ncRgGib1330?si=5gH9nfKY8JrK2puN"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="course-card">
+            Financial Video 2
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/4j2emMn7UaI?si=cj2v3ZHk93t2tae4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="articles-section">
+        <h3>Financial Articles</h3>
+        <div class="articles">
+          <div class="content">
+            <div class="article">
+              <h4>Money Control</h4>
+              <p>Infosys share price recovers</p>
+            </div>
+            <div class="article">
+              <h4>Money Control</h4>
+              <p>Neet supmerme court hearing</p>
+            </div>
+          </div>
+          <div class="more-icon">
+            <span><a href="https://www.moneycontrol.com/">Read More</a></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <!-- <div class="footer-logo"> -->
+          <!-- <img src="path_to_logo_image.jpg" alt="Logo" />
+        </div> -->
+        <div class="footer-disclaimer">
+          <p>
+            Disclaimer: The information provided on this website is for
+            educational purposes only and should not be considered as financial
+            advice. Always consult with a financial advisor before making any
+            financial decisions.
+          </p>
+        </div>
+        <div class="footer-social">
+          <a href="#"><img src="/images/path_to_facebook_icon.png" alt="Facebook" /></a>
+          <a href="#"><img src="/images/path_to_twitter_icon.png" alt="Twitter" /></a>
+          <a href="#"><img src="/images/path_to_linkedin_icon.png" alt="LinkedIn" /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

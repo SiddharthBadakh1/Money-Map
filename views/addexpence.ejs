@@ -1,0 +1,17 @@
+<h1>Your Expence</h1>
+    <form action="/messages" method="POST">
+        <textarea name="food" required></textarea><br>
+        <textarea name="travel" required></textarea><br>
+        <textarea name="rent" required></textarea><br>
+        <button type="submit">Add Message</button>
+    </form>
+    <ul>
+        <% messages.forEach(message => { %>
+            <li>
+                <%= message.food %>
+                <%= message.travel %>
+                <%= message.rent %> 
+                <a href="/messages/edit/<%= message._id %>">Edit</a>
+            </li>
+        <% }) %>
+    </ul>

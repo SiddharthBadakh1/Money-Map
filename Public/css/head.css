@@ -1,0 +1,130 @@
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      footer {
+        background-color: #2b2b2b;
+        color: #ddd;
+        padding: 20px 0;
+        font-size: 14px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .footer-logo img {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      .footer-disclaimer {
+        margin-bottom: 20px;
+      }
+
+      .footer-disclaimer p {
+        margin: 10px 0;
+        line-height: 1.6;
+      }
+
+      .footer-disclaimer strong {
+        color: #ffffff;
+      }
+
+      .footer-social a {
+        margin-right: 10px;
+        display: inline-block;
+      }
+
+      .footer-social img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .footer-links {
+        margin-top: 20px;
+      }
+
+      .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom {
+        background-color: #1a1a1a;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      header {
+        background-color: #2b2b2b;
+        color: white;
+        padding: 15px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .logo h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      nav ul li a:hover {
+        background-color: white;
+        color: #2b2b2b;
+        border-radius: 4px;
+      }
+
+      section {
+        padding: 100px 20px;
+        margin-top: 70px; /* Adjusted for fixed header */
+      }
+
+      h2 {
+        margin-top: 0;
+      }
